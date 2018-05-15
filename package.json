@@ -1,0 +1,31 @@
+{
+  "name": "vuex-fly",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build index.js",
+    "example": "parcel build examples/myModule --no-minify --target node --no-source-maps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhou-yg/vuex-fly.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhou-yg/vuex-fly/issues"
+  },
+  "homepage": "https://github.com/zhou-yg/vuex-fly#readme",
+  "devDependencies": {
+    "babel-plugin-transform-decorators": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-es2015-spread": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "parcel": "^1.8.1"
+  },
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "immer": "^1.3.0"
+  }
+}
