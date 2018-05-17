@@ -1,24 +1,25 @@
 import {FlyModule, mergeModule} from './FlyModule';
 
-export function componentModule(initialModuleFunc) {
+export function pieceModule(initialModuleFunc) {
 
-  function createMergeClass(name) {
+  function createMergeClass(...args) {
     return function mergeClass(myModuleClass) {
       var oldFn = myModuleClass.prototype.getInitModule;
       myModuleClass.prototype.getInitModule = function getInitModule() {
-        const initModule = initialModuleFunc(name);
+        // console.log(args);
+        const initModule = initialModuleFunc.apply(this, args);
         const old = oldFn();
         return mergeModule(old, initModule);
       }
     }
   }
 
-  return function (name) {
-    console.log(`name`, name);
-    if (Object.getPrototypeOf(name) === FlyModule) {
-      return createMergeClass()(name);
+  return function (...args) {
+    // console.log(`name`, args);
+    if (Object.getPrototypeOf(args[0]) === FlyModule) {
+      return createMergeClass().apply(this, args);
     } else {
-      return createMergeClass(name);
+      return createMergeClass.apply(this, args);
     }
   };
 }

@@ -1,6 +1,6 @@
-import {first, componentModule} from '../util';
+import {first, pieceModule} from '../util';
 
-export default componentModule(function (pre) {
+export default pieceModule(function (pre) {
   const pageName = pre ? `${pre}ListPage` : 'listPage';
   const listName = pre ? `${pre}List` : 'list';
   const actionName = pre ? `get${first(pre)}List` : 'getList';

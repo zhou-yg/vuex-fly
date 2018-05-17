@@ -3,3 +3,5 @@ export {default as list} from './common/list';
 export {default as loading} from './common/loading';
 
 export * from './FlyModule';
+
+export {pieceModule} from './util';

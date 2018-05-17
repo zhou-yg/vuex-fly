@@ -1,6 +1,6 @@
-import {first, componentModule} from '../util';
+import {first, pieceModule} from '../util';
 
-export default componentModule(function (pre = '', init = null) {
+export default pieceModule(function (pre = '', init = null) {
   const stateName = pre ? `${pre}Data` : 'data';
   const actionName = `set${first(pre)}Data`;
 

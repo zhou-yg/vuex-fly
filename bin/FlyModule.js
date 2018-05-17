@@ -8,6 +8,11 @@ function transMutations(mutations, actions) {
       mutations[k] = function autoFill() {};
     }
   });
+  allKeys.forEach(k => {
+    if (!actions[k]) {
+      actions[k] = function autoFill() {};
+    }
+  });
 }
 
 function transActions (actions) {
@@ -105,11 +110,12 @@ export class FlyModule {
 
     const finalModule = mergeModule(initModule, myComponentModule);
 
+    // fill mutations
+    transMutations(finalModule.mutations, finalModule.actions);
+
     // proxy action
     transActions(finalModule.actions);
 
-    // fill mutations
-    transMutations(finalModule.mutations, finalModule.actions);
 
     Object.assign(this, finalModule);
   }

@@ -1,6 +1,6 @@
-import {first, componentModule} from '../util';
+import {first, pieceModule} from '../util';
 
-export default componentModule(function createLoading (pre) {
+export default pieceModule(function createLoading (pre) {
   var pageName = 'isLoading';
   var actionName = 'loadingTo';
   if (pre) {
@@ -8,7 +8,7 @@ export default componentModule(function createLoading (pre) {
     actionName = `${pre}${first(actionName)}`;
   }
 
-  return genDesc({
+  return {
     state: {
       [pageName]: false,
     },
@@ -26,5 +26,5 @@ export default componentModule(function createLoading (pre) {
     actions: {
     // loading
     },
-  })
+  };
 });
